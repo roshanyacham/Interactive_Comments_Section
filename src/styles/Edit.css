@@ -1,0 +1,49 @@
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-textarea {
+  width: 35rem;
+  min-height: 80px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+}
+.edit-container .edit-textarea{
+    width: 20rem;
+}
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-btn,
+.update-btn {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+}
+
+.cancel-btn {
+  background-color: hsl(211, 10%, 45%);
+  color: white
+}
+.cancel-btn:hover{
+  background-color: #ccc;
+}
+
+.update-btn {
+  background-color: hsl(238, 40%, 52%);
+  color: #fff;
+}
+.update-btn:hover{
+  background-color:  hsl(239, 57%, 85%);
+}
