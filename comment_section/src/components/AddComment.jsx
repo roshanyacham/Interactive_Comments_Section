@@ -51,6 +51,7 @@ const AddComment = () => {
         .filter((msg) => msg.id !== commentId)
     );
   };
+
   const updateCommentsRecursively = (comments, commentId, updatedContent) => {
     return comments.map((comment) => {
       if (comment.id === commentId) {
@@ -283,7 +284,9 @@ const AddComment = () => {
                               alt="reply"
                               onClick={() => setReplyContext(msg.id, reply.id)}
                             />
-                            <h5 onClick={() => setReplyContext(msg.id, reply.id)}>Reply</h5>
+                            <h5 onClick={() => setReplyContext(msg.id, reply.id)}>
+                              Reply
+                            </h5>
                           </>
                         )}
                       </div>
@@ -307,7 +310,10 @@ const AddComment = () => {
                       )}
                     </div>
                   </div>
-                  {replyingToCommentId === msg.id && replyingToReplyId === reply.id && (
+                </div>
+                {/* Render reply textbox directly under the reply if selected */}
+                {replyingToCommentId === msg.id && replyingToReplyId === reply.id && (
+                  <div className="nested-reply-container">
                     <Reply
                       parentId={msg.id}
                       replyId={reply.id}
@@ -317,8 +323,8 @@ const AddComment = () => {
                       currentUser={currentUser}
                       replyingTo={reply.user.username}
                     />
-                  )}
-                </div>
+                  </div>
+                )}
 
                 {reply.replies &&
                   reply.replies.map((nestedReply) => (
@@ -362,9 +368,7 @@ const AddComment = () => {
                                     className="icon-edit1"
                                     src="./images/icon-edit.svg"
                                     alt="update"
-                                    onClick={() =>
-                                      setEditingCommentId(nestedReply.id)
-                                    }
+                                    onClick={() => setEditingCommentId(nestedReply.id)}
                                   />
                                   <h5>Edit</h5>
                                 </div>
@@ -378,11 +382,9 @@ const AddComment = () => {
                                       setReplyContext(msg.id, nestedReply.id)
                                     }
                                   />
-                                  <h5
-                                    onClick={() =>
+                                  <h5 onClick={() =>
                                       setReplyContext(msg.id, nestedReply.id)
-                                    }
-                                  >
+                                    }>
                                     Reply
                                   </h5>
                                 </>
@@ -408,8 +410,10 @@ const AddComment = () => {
                             )}
                           </div>
                         </div>
-                        {replyingToCommentId === msg.id &&
-                          replyingToReplyId === nestedReply.id && (
+                      </div>
+                      {replyingToCommentId === msg.id &&
+                        replyingToReplyId === nestedReply.id && (
+                          <div className="nested-reply-container">
                             <Reply
                               parentId={msg.id}
                               replyId={nestedReply.id}
@@ -419,8 +423,8 @@ const AddComment = () => {
                               currentUser={currentUser}
                               replyingTo={nestedReply.user.username}
                             />
-                          )}
-                      </div>
+                          </div>
+                        )}
                     </React.Fragment>
                   ))}
               </React.Fragment>
