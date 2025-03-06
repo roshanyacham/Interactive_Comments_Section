@@ -311,7 +311,6 @@ const AddComment = () => {
                     </div>
                   </div>
                 </div>
-                {/* Render reply textbox directly under the reply if selected */}
                 {replyingToCommentId === msg.id && replyingToReplyId === reply.id && (
                   <div className="nested-reply-container">
                     <Reply
