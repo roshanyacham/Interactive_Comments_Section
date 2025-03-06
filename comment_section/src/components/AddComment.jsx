@@ -27,10 +27,23 @@ const AddComment = () => {
       .catch((error) => console.error("Error loading data:", error));
   }, []);
 
+  // Helper function to get the maximum id from all comments and nested replies.
+  const getMaxId = (comments) => {
+    let maxId = 0;
+    comments.forEach((comment) => {
+      if (comment.id > maxId) maxId = comment.id;
+      if (comment.replies && comment.replies.length > 0) {
+        const nestedMax = getMaxId(comment.replies);
+        if (nestedMax > maxId) maxId = nestedMax;
+      }
+    });
+    return maxId;
+  };
+
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
     const newMsg = {
-      id: messages.length + 1,
+      id: getMaxId(messages) + 1,
       content: newMessage,
       createdAt: "just now",
       score: 0,
@@ -41,15 +54,18 @@ const AddComment = () => {
     setNewMessage("");
   };
 
+  // Recursive function to delete a comment or reply at any level
+  const deleteCommentRecursively = (comments, commentId) => {
+    return comments
+      .filter(comment => comment.id !== commentId)
+      .map(comment => ({
+        ...comment,
+        replies: comment.replies ? deleteCommentRecursively(comment.replies, commentId) : []
+      }));
+  };
+
   const handleDeleteComment = (commentId) => {
-    setMessages(
-      messages
-        .map((msg) => ({
-          ...msg,
-          replies: msg.replies.filter((reply) => reply.id !== commentId),
-        }))
-        .filter((msg) => msg.id !== commentId)
-    );
+    setMessages(deleteCommentRecursively(messages, commentId));
   };
 
   const updateCommentsRecursively = (comments, commentId, updatedContent) => {
