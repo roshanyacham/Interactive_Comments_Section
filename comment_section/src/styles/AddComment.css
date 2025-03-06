@@ -191,3 +191,151 @@ span {
   .section .contianer {
     margin-top: 1rem !important;
   }
+@media screen and (max-width: 768px) {
+  .innerbox {
+    gap: 8rem;
+  }
+  
+  .para {
+    width: 100%;
+  }
+  
+  p {
+    width: 100%;
+  }
+  
+  .container1 {
+    width: 90%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .container1 textarea {
+    width: 70%;
+  }
+  
+  .reply-container {
+    margin-left: 5rem;
+    width: 90%;
+  }
+  
+  .reply-container .contianer {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .reply1 .icon-reply {
+    margin-left: -10rem;
+  }
+  
+  .reply1 .edit-delete-container {
+    margin-left: -12rem;
+  }
+  
+  .contianer {
+    width: 90%;
+  }
+}
+
+/* Media Query for Mobile Phones */
+@media screen and (max-width: 480px) {
+  .contianer {
+    flex-direction: column;
+    width: 90%;
+    padding: 0.5rem;
+  }
+  
+  .score-box {
+    flex-direction: row;
+    width: 100%;
+    padding: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .innerbox {
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .content-box {
+    width: 100%;
+  }
+  
+  .para {
+    width: 100%;
+  }
+  
+  p {
+    width: 100%;
+  }
+  
+  .container1 {
+    width: 90%;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .container1 textarea {
+    width: 100%;
+  }
+  
+  .container1 button {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+  
+  .reply-container {
+    margin-left: 1rem;
+    width: 90%;
+  }
+  
+  .reply-container .contianer {
+    margin-left: 0;
+  }
+  
+  .reply1 .icon-reply {
+    margin-left: -2rem;
+  }
+  
+  .reply1 .edit-delete-container {
+    margin-left: -1rem;
+  }
+  
+  .edit-textarea {
+    width: 100%;
+  }
+  
+  .reply-container .edit-delete-container img.icon-edit1,
+  .reply-container .edit-delete-container h5 {
+    margin-left: 0;
+  }
+  
+  .edit-delete-container {
+    gap: 0.3rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .amyrobson {
+    gap: 0.5rem;
+  }
+  
+  .reply h5,
+  .reply1 h5 {
+    font-size: 0.8rem;
+  }
+  
+  .reply img,
+  .reply1 img {
+    height: 12px;
+    width: 12px;
+  }
+  
+  .edit-delete-container {
+    gap: 0.2rem;
+  }
+}
