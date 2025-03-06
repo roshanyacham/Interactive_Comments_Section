@@ -234,7 +234,7 @@ span {
   }
   .score-box {
     flex-shrink: 0;
-    width: 3.5rem;
+    width: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
