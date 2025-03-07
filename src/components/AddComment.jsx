@@ -474,13 +474,13 @@ const AddComment = () => {
               <React.Fragment key={reply.id}>
                 <div className="contianer">
                   <button className="score-box">
-                    <img
+                    <img className="icon-plus"
                       src="./images/icon-plus.svg"
                       alt="plus"
                       onClick={() => handlePlus(msg.id, reply.id)}
                     />
                     <h5>{reply.score}</h5>
-                    <img
+                    <img className="icon-minus"
                       src="./images/icon-minus.svg"
                       alt="minus"
                       onClick={() => handleMinus(msg.id, reply.id)}

@@ -161,6 +161,15 @@ p{
 .reply-container .contianer{
     gap:1rem;
 } */
+
+.icon-minus:hover{
+    color: hsl(239, 57%, 85%);
+    cursor: pointer;
+}
+.icon-plus:hover{
+    color: hsl(239, 57%, 85%);
+    cursor: pointer;
+}
 span {
     font-weight: 500;
     color: hsl(211, 10%, 45%);
